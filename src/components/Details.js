@@ -18,7 +18,6 @@ function Details(props) {
         (result) => {
           setUserInfo(result)
           setIsLoading(false)
-          console.log(result)
         },
         (error) => console.log(error)
       )
@@ -28,7 +27,8 @@ function Details(props) {
 
   return (
     <>
-      {isLoading ? <p>Загрузка</p> : <Card user={userInfo}/>}
+      {isLoading && <p>Загрузка</p> }
+      {userInfo && <Card user={userInfo}/>}
     </>
   )
 }
